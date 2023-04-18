@@ -1,0 +1,10 @@
+{% if cppd == 1 %}
+  {% extends "base_cppd.html" %}
+{% else %}
+  {% extends 'base_requerimento.html' %}
+{% endif %}
+{% block conteudo %}
+
+<a class="btn btn-success me-2" type="button" href="{{url_for('requerimentos.requerimento')}}">Novo Requerimento</a>
+
+{% endblock conteudo %}
