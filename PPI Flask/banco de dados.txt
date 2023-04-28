@@ -17,7 +17,7 @@ CREATE TABLE requerimentos (
   status ENUM('pendente', 'aprovado', 'reprovado') NOT NULL DEFAULT 'pendente',
   data_criacao TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id),
-  FOREIGN KEY (usuario_id) REFERENCES usuarios (id)
+  FOREIGN KEY (usuario_id) REFERENCES docente (id)
 );
 
 CREATE TABLE partes (
