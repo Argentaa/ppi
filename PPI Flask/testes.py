@@ -1,8 +1,36 @@
-perguntas = (['Aulas', 'Semestres', 'Periodos'], ['Aulas12', 'Semestres22', 'Periodos32','Periodos33'])
-pontos = (['1 pontos por cada aula', '1 pontos por cada semestre', '1 pontos por cada periodo'], ['1 pontos por cada aula22', '1 pontos por cada semestre22', '1 pontos por cada periodo22','1 pontos por cada periodo22s'])
 
-for i in range(0,len(perguntas)):
-    print('\nfor perguntas\n')
-    for l in range(0,len(perguntas[i])):
-        print(perguntas[i][l])
-        print(pontos[i][l])
+pontosdictr = {'Parte 1: Atividade Docente': {'1 - Número de Horas Aula': [('Numero Periodos Aula', '02 pontos'), ('Número médio de disciplina semestrais', '01 pontos'), ('Número médio de turmas semestrais', '3 Pontos'), ('Semestres', '5 Pontos')], 
+                                             '2 - Numeros semestresdsadasd': [('Curso de ate 20hfdsfdsf', '01 pontos'), ('Curso de afdsfsddsate 40h', '03 pontos'), ('Curso acidasdasdama de 40 horas', '01 pontos')]}, 
+            'Parte 2: Treinamento Regulares': {'2 - Cursos de Capacitação': [('Curso de ate 20h', '01 pontos'), ('Curso de ate 40h', '03 pontos'), ('Curso acima de 40 horas', '01 pontos')]}}
+
+partes = ['Parte 1: Atividade Docente', 'Parte 2: Treinamento Regulares','Parte 1: Atividade Docente']
+categorias = ['1 - Número de Horas Aula', '2 - Cursos de Capacitação','2 - Numeros semestresdsadasd' ]
+criterios_pontos = [[('Numero Periodos Aula', '02 pontos'), ('Número médio de disciplina semestrais', '01 pontos'), 
+                     ('Número médio de turmas semestrais', '3 Pontos'), ('Semestres', '5 Pontos')], 
+                     [('Curso de ate 20h', '01 pontos'), ('Curso de ate 40h', '03 pontos'), ('Curso acima de 40 horas', '01 pontos')],
+                     [('Curso de ate 20hfdsfdsf', '01 pontos'), ('Curso de afdsfsddsate 40h', '03 pontos'), ('Curso acidasdasdama de 40 horas', '01 pontos')]]
+
+pontosdict = {}
+
+p1 = ['1ponto', '2ponto', '3ponto']
+p2 = ['ques1', 'quest2', 'quest3']
+
+
+
+for i, parte in enumerate(partes):
+    categoria = categorias[i]
+    criterios = criterios_pontos[i]
+    if parte not in pontosdict:
+        pontosdict[parte] = {}
+    pontosdict[parte][categoria] = criterios
+
+
+
+
+
+for i,l in pontosdict.items():
+    print('\nparte', i)
+    for j, k in l.items():
+        print('\ncategoria', j)
+        for g, o in k:
+            print('\ncriterio', g, o)

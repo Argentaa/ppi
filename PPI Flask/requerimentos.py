@@ -10,9 +10,33 @@ pagina = 'base_docente.html'
 @login_required
 
 def requerimento():
-    cppd = current_user.cppd
+    criteriosdict = {}
 
-    perguntas = ['Aulas', 'Semestres', 'Periodos']
-    pontos = ['1 pontos por cada aula', '1 pontos por cada semestre', '1 pontos por cada periodo']
+    cursor = db.cursor()
+    cursor.execute("""SELECT descricao FROM partes""")
+    dados_p = cursor.fetchall()
+    partes = [item for t in dados_p for item in t]
 
-    return render_template('requerimento.html', cppd=cppd, perguntas=perguntas, pontos=pontos)
+    for parte in partes:
+        cursor.execute("""SELECT id FROM partes WHERE descricao=%s""", (parte,))
+        idPartelist = cursor.fetchall()
+        idParte, *x = idPartelist
+
+        cursor.execute("""SELECT descricao FROM categorias WHERE parte_id=%s""", (*idParte,))
+
+        categoriastuple = cursor.fetchall()
+        categoriaslist = [item for t in categoriastuple for item in t]
+
+        for categoria in categoriaslist:
+            cursor.execute("""SELECT id FROM categorias WHERE descricao=%s""", (categoria,))
+            idCategorialist = cursor.fetchall()
+            idCategoria, *x = idCategorialist
+
+            cursor.execute("""SELECT descricao, pontos_string FROM criterios WHERE categoria_id=%s""", (*idCategoria,))
+            criterios = cursor.fetchall()
+           
+            if parte not in criteriosdict:
+                criteriosdict[parte] = {}
+            criteriosdict[parte][categoria] = criterios
+
+    return render_template('requerimento.html', criteriosdict=criteriosdict)

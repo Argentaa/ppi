@@ -2,7 +2,7 @@ from flask import Flask
 from flask_login import LoginManager
 import mysql.connector
 
-db = mysql.connector.connect(host='localhost',database='bd_progressaoparc',user='root',password='root')
+db = mysql.connector.connect(host='localhost',database='bd_progparcial',user='root',password='root')
 
 def create_app():
     app = Flask(__name__)

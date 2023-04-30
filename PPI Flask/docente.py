@@ -5,7 +5,6 @@ from .models import User
 
 docente = Blueprint('docente', __name__, template_folder='templates\docente')
 
-
 @docente.route('/home_docente')
 @login_required
 def home_docente():
