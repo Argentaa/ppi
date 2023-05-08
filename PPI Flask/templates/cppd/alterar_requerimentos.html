@@ -44,81 +44,161 @@
         width: 50px;
         padding-bottom: 0px;
     }
+    .modal-body { 
+        position: static; 
+    }
+    .parte {
+        padding-bottom: 30px;
+    }
+
 
 </style>
 
-<h1>Parte 1: Atividade docente</h1>
+{% for i, l in criteriosdict.items() %}
+    <div class="row justify-content-md-center parte"> 
+        <div class='col-sm-12'>
+            <h1>{{i}}</h1>
+        </div>
 
-{% for i, l in criterios %}
+        <div class="row justify-content-center">
+            <div class="col-sm-1">
+                <a class="btn btn-warning btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#" href="#"
+                type="button" style="color: black; font-family:
+                'Poppins'; font-weight: 300;">Alterar Parte</a>
+            </div>
+            <div class="col-sm-1">
+                <a class="btn btn-danger btn-sm"
+                href="#" type="button"
+                style="color: black; font-family: 'Poppins';
+                font-weight: 300;">Excluir Parte</a>
+            </div>
+        </div>
+        
+    </div>
 
-<h3>1 - Número de Horas Aula</h3>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-9 col-md-9 col-lg-9 mx-auto">
-            <div class="card border-0 shadow rounded-3">
-                <div class="card-body p-3 p-sm-4">
-                    <div class="row">
-                        <div class="col-sm-8">
-                        
-                            {% for pergunta in i %}
-                                <h2>{{ pergunta }}</h2>
-                            {% endfor %}
-                        </div>
-                        <div class="col-sm-1">
-                            {% for pergunta in i %}
-                                <div class="input-group mb-3" id="inputs">
-                                    <input type="text" class="form-control" style="text-align: center">
+    {% for j, k in l.items(): %}
+        <h3>{{j}}</h3>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9 col-md-9 col-lg-9 mx-auto">
+                    <div class="card border-0 shadow rounded-3">
+                        <div class="card-body p-3 p-sm-4">
+                            <div class="row">
+                                <div class="col-sm-7">
+                                    {% for g, o in k %}
+                                        <h2>{{ g }}</h2>
+                                    {% endfor %}
                                 </div>
-                            {% endfor %}
-                        </div>
-                        <div class="col-sm-3">
-                            {% for ponto in l %}
-                                    <h4>({{ ponto }})</h4><br>
-                            {% endfor %}
-
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-7">
-                            </div>
-                            <div class="col-sm-2">
-                                <a class="btn btn-warning btn-sm"
-                                data-bs-toggle="modal"
-                                data-bs-target="#alterarDados" href="#"
-                                type="button" style="color: black; font-family:
-                                'Poppins'; font-weight: 300;">Alterar Criterios</a>
-                            </div>
-                            <div class="col-sm-2">
-                                <a class="btn btn-danger btn-sm"
-                                href="#" type="button"
-                                style="color: black; font-family: 'Poppins';
-                                font-weight: 300;">Excluir Categoria</a>
+                                <div class="col-sm-1">
+                                    {% for g, o in k %}
+                                        <div class="input-group mb-3" id="inputs">
+                                            <input type="text" class="form-control" style="text-align: center">
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                <div class="col-sm-3">
+                                    {% for g, o in k %}
+                                            <h4>({{ o }})</h4><br>
+                                    {% endfor %}
+                                </div>
+                                <div class="col-sm-1 botao">
+                                    {% for g, o in k %}
+                            
+                                        <a class="btn btn-warning btn-sm"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#" href="#"
+                                        type="button" style="color: black; font-family:
+                                        'Poppins'; font-weight: 300; font-size:10px;"><img src="https://cdn-icons-png.flaticon.com/512/1159/1159633.png" alt="" width="15px"></a>
+                                        <br><br>
+                                    {% endfor %}
+                                </div>
+                            
+                                <div class="row">
+                                    <div class="col-sm-5"></div>
+                                    <div class="col-sm-3">
+                                        <a class="btn btn-warning btn-sm"
+                                        href="#" type="button"
+                                        style="color: black; font-family: 'Poppins';
+                                        font-weight: 300;">Alterar Categoria</a>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <a class="btn btn-danger btn-sm"
+                                        href="#" type="button"
+                                        style="color: black; font-family: 'Poppins';
+                                        font-weight: 300;">Excluir Categoria</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<br>
+        <br>
+    {% endfor %}
+
 {% endfor %}
 
-<div class="modal fade" id="alterarDados" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+
+
+<div class="modal fade" id="adicionarCriterio" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Editar Criterrios do Requerimento</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Adicionar Criterio</h5>
             </div>
             <div class="modal-body">
-                <form method="POST" action="#">
-                    {% for j, p in criterios %}
-                        {% for pergunta in j %}
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floating{{pergunta}}" placeholder="{{pergunta}}" name='{{pergunta}}' value="{{pergunta}}" required>
-                                <label for="floating{{pergunta}}">{{pergunta}}</label>
-                            </div>
+                <form method="POST" action="{{ url_for('cppd.adicionar_criterio') }}">
+                    
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingCrite" name='Criterio' value="" required>
+                        <label for="floatingCrite">Criterio | Ex: Numero Periodos de Aula</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingPontos" name='Pontos' value="" required>
+                        <label for="floatingPontos">Pontos Criterio | Ex: 02 pontos por Periodos de Aula </label>
+                    </div>
+                    
+                    <select class="form-select" aria-label="Default select example" name="Categoria">
+                        <option selected>Categoria</option>
+                        {% for i in categoriasalt %} 
+                            <option value="{{i}}">{{i}}</option>
                         {% endfor %}
-                    {% endfor %}
+                    </select>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button class="btn btn-success" type="submit">Salvar Alterações</button>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="adicionarCategoria" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Adicionar Categoria</h5>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="{{ url_for('cppd.adicionar_categoria') }}">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingCat" name='Categoria' value="" required>
+                        <label for="floatingCat">Categoria | Ex: 1 - Número de Horas Aula</label>
+                    </div>
+                    <select class="form-select" aria-label="Default select example" name="Parte">
+                        <option selected>Parte</option>
+                        {% for i in partesalt %} 
+                            <option value="{{i}}">{{i}}</option>
+                        {% endfor %}
+                    </select>
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                         <button class="btn btn-success" type="submit">Salvar Alterações</button>
@@ -128,6 +208,42 @@
         </div>
     </div>
 </div>
-    
+
+<div class="modal fade" id="adicionarParte" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Adicionar Parte</h5>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="{{ url_for('cppd.adicionar_parte') }}">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingParte" name='Parte' value="" required>
+                        <label for="floatingParte">Parte | Ex: Parte 1: Atividade Docente</label>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button class="btn btn-success" type="submit">Salvar Alterações</button>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+
+<a class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#adicionarCriterio" href="#" 
+type="button" style="color: black; font-family:
+'Poppins'; font-weight: 300;">Adicionar Criterio</a>
+
+<a class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#adicionarCategoria" href="#" 
+type="button" style="color: black; font-family:
+'Poppins'; font-weight: 300;">Adicionar Categoria</a>
+
+<a class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#adicionarParte" href="#" 
+type="button" style="color: black; font-family:
+'Poppins'; font-weight: 300;">Adicionar Parte</a>
 
 {% endblock conteudo %}

@@ -50,100 +50,47 @@
 
 </style>
 
-<h1>Parte 1: Atividade docente</h1>
+{% for i, l in criteriosdict.items() %}
 
-<h3>1 - Número de Horas Aula</h3>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-9 col-md-9 col-lg-9 mx-auto">
-            <div class="card border-0 shadow rounded-3">
-                <div class="card-body p-3 p-sm-4">
-                    <div class="row">
-                        <div class="col-sm-8">
-                            {% for pergunta in perguntas %}
-                                <h2>{{ pergunta }}</h2>
-                            {% endfor %}
-                        </div>
-                        <div class="col-sm-1">
-                            {% for pergunta in perguntas %}
-                                <div class="input-group mb-3" id="inputs">
-                                    <input type="text" class="form-control" style="text-align: center">
+        <h1>{{i}}</h1>
+
+    {% for j, k in l.items(): %}
+        <h3>{{j}}</h3>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9 col-md-9 col-lg-9 mx-auto">
+                    <div class="card border-0 shadow rounded-3">
+                        <div class="card-body p-3 p-sm-4">
+                            <div class="row ses">
+                                <div class="col-sm-7">
+                                
+                                    {% for g, o in k %}
+                                        <h2>{{ g }}</h2>
+                                    {% endfor %}
                                 </div>
-                            {% endfor %}
+                                <div class="col-sm-1">
+                                    {% for g, o in k %}
+                                        <div class="input-group mb-3" id="inputs">
+                                            <input type="text" class="form-control" style="text-align: center" name="{{ g }}">
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                <div class="col-sm-3">
+                                    {% for g, o in k %}
+                                            <h4>({{ o }})</h4><br>
+                                    {% endfor %}
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-sm-3">
-                            {% for ponto in pontos %}
-                                    <h4>({{ ponto }})</h4><br>
-                            {% endfor %}
-                        </div>
-                        
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+        <br>
+    {% endfor %}
 
-<br>
-<h3>2 - Atividade Regular de docência em diferentes modalidades e níveis de ensino, por semeste</h3>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-9 col-md-9 col-lg-9 mx-auto">
-            <div class="card border-0 shadow rounded-3">
-                <div class="card-body p-3 p-sm-4">
-                    <div class="row">
-                        <div class="col-sm-8">
-                            <h2>Número médio de períodos semanais:</h2>
-                            <h2>Número médio de disciplinas semestrais:</h2>
-                            <h2>Número médio de turmas semestrais:</h2>
-                            <h2>Semestres:</h2>
-                            <h2>Semestres:</h2>
-                            <h2>Semestres:</h2>
-                            <h2>Semestres:</h2>
-                            <h2>Semestres:</h2>
-                        </div>
-                        <div class="col-sm-1">
-                            <div class="input-group mb-3" id="inputs">
-                                <input type="text" class="form-control" style="text-align: center">
-                            </div>
-                            <div class="input-group mb-3" id="inputs">
-                                <input type="text" class="form-control" style="text-align: center">
-                            </div>
-                            <div class="input-group mb-3" id="inputs">
-                                <input type="text" class="form-control" style="text-align: center">
-                            </div>
-                            <div class="input-group mb-3" id="inputs">
-                                <input type="text" class="form-control" style="text-align: center">
-                            </div>
-                            <div class="input-group mb-3" id="inputs">
-                                <input type="text" class="form-control" style="text-align: center">
-                            </div>
-                            <div class="input-group mb-3" id="inputs">
-                                <input type="text" class="form-control" style="text-align: center">
-                            </div>
-                            <div class="input-group mb-3" id="inputs">
-                                <input type="text" class="form-control" style="text-align: center">
-                            </div>
-                            <div class="input-group mb-3" id="inputs">
-                                <input type="text" class="form-control" style="text-align: center">
-                            </div>
-                            
-                        </div>
-                        <div class="col-sm-3">
-                            <h4>(01 ponto para cada periodo de aula)</h4><br>
-                            <h4>(02 ponto para cada periodo de aula)</h4><br>
-                            <h4>(01 ponto para cada periodo de aula)</h4><br>
-                            <h4>(01 ponto para cada periodo de aula)</h4><br>
-                            <h4>(01 ponto para cada periodo de aula)</h4><br>
-                            <h4>(01 ponto para cada periodo de aula)</h4>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+{% endfor %}
 
 
 {% endblock conteudo %}
