@@ -66,11 +66,6 @@ def alterar_requerimentos():
             if parte not in criteriosdict:
                 criteriosdict[parte] = {}
             criteriosdict[parte][categoria] = criterios
-            
-    print(criteriosdict)
-            
-
-
 
     return render_template('alterar_requerimentos.html', partesalt=partes, categoriasalt= categoriasalt, criteriosdict=criteriosdict)
 

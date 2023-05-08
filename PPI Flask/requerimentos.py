@@ -39,4 +39,4 @@ def requerimento():
                 criteriosdict[parte] = {}
             criteriosdict[parte][categoria] = criterios
 
-    return render_template('requerimento.html', criteriosdict=criteriosdict)
+    return render_template('requerimento.html', criteriosdict=criteriosdict, cppd = current_user.cppd)
