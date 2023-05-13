@@ -34,6 +34,7 @@ Instale as dependências
   pip install flask
   pip instal mysql.connector
   pip install python-dotenv
+  pip install flask-login
 ```
 
 Inicie o servidor
