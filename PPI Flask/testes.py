@@ -1,14 +1,14 @@
 
-pontosdictr = {'Parte 1: Atividade Docente': {'1 - Número de Horas Aula': [('Numero Periodos Aula', '02 pontos'), ('Número médio de disciplina semestrais', '01 pontos'), ('Número médio de turmas semestrais', '3 Pontos'), ('Semestres', '5 Pontos')], 
+'''pontosdictr = {'Parte 1: Atividade Docente': {'1 - Número de Horas Aula': [('Numero Periodos Aula', '02 pontos'), ('Número médio de disciplina semestrais', '01 pontos'), ('Número médio de turmas semestrais', '3 Pontos'), ('Semestres', '5 Pontos')], 
                                              '2 - Numeros semestresdsadasd': [('Curso de ate 20hfdsfdsf', '01 pontos'), ('Curso de afdsfsddsate 40h', '03 pontos'), ('Curso acidasdasdama de 40 horas', '01 pontos')]}, 
             'Parte 2: Treinamento Regulares': {'2 - Cursos de Capacitação': [('Curso de ate 20h', '01 pontos'), ('Curso de ate 40h', '03 pontos'), ('Curso acima de 40 horas', '01 pontos')]}}
 
 partes = ['Parte 1: Atividade Docente', 'Parte 2: Treinamento Regulares','Parte 1: Atividade Docente']
 categorias = ['1 - Número de Horas Aula', '2 - Cursos de Capacitação','2 - Numeros semestresdsadasd' ]
-criterios_pontos = [[('Numero Periodos Aula', '02 pontos'), ('Número médio de disciplina semestrais', '01 pontos'), 
-                     ('Número médio de turmas semestrais', '3 Pontos'), ('Semestres', '5 Pontos')], 
-                     [('Curso de ate 20h', '01 pontos'), ('Curso de ate 40h', '03 pontos'), ('Curso acima de 40 horas', '01 pontos')],
-                     [('Curso de ate 20hfdsfdsf', '01 pontos'), ('Curso de afdsfsddsate 40h', '03 pontos'), ('Curso acidasdasdama de 40 horas', '01 pontos')]]
+criterios_pontos = [[('Numero Periodos Aula', '02 pontos',2), ('Número médio de disciplina semestrais', '01 pontos',1), 
+                     ('Número médio de turmas semestrais', '3 Pontos',3), ('Semestres', '5 Pontos',5)], 
+                     [('Curso de ate 20h', '01 pontos',1), ('Curso de ate 40h', '03 pontos',3), ('Curso acima de 40 horas', '01 pontos',1)],
+                     [('Curso de ate 20hfdsfdsf', '01 pontos',1), ('Curso de afdsfsddsate 40h', '03 pontos',3), ('Curso acidasdasdama de 40 horas', '01 pontos',1)]]
 
 pontosdict = {}
 
@@ -32,5 +32,7 @@ for i,l in pontosdict.items():
     print('\nparte', i)
     for j, k in l.items():
         print('\ncategoria', j)
-        for g, o in k:
-            print('\ncriterio', g, o)
+        for a in k:
+            for p in a:
+                print(p)'''
+
