@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+
+<style>
+    body {
+        background-color: whitesmoke;
+    }
+
+    .btn-login {
+        font-size: 0.9rem;
+        letter-spacing: 0.05rem;
+        padding: 0.75rem 1rem;
+    }
+
+    .row {
+        font-family: "Poppins";
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card border-0 shadow rounded-3 my-5">
+                <div class="card-body p-4 p-sm-5">
+
+                    <div class="alert alert-danger" role="alert" style="text-align: center;">
+                        O token para redefinição de senha é inválido ou expirou. Por favor, solicite um novo link de redefinição.
+                    </div> 
+                     
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock conteudo %}

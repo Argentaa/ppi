@@ -1,0 +1,25 @@
+{% extends 'base_cppd.html' %}
+{% block conteudo %}
+
+<style>
+    h1 {
+        text-align: center;
+        margin-top: 120px;
+        font-family: "Poppins";
+        color: whitesmoke;
+        font-size: 50px;
+        font-weight: 700;
+    }
+    h2 {
+        margin-top: 30px;
+        text-align: center;
+        font-family: "Poppins";
+        color: whitesmoke;
+        font-size: 20px;
+        font-weight: 300;
+    }
+</style>
+
+<a class="btn btn-warning me-2" type="button" href="{{url_for('cppd.alterar_requerimentos')}}">Alterar Criterios Requerimento</a>
+
+{% endblock conteudo %}
