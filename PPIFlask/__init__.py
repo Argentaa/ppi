@@ -1,7 +1,7 @@
 import os
 from flask import Flask
 from flask_login import LoginManager
-from flask_mail import Mail, Message
+from flask_mail import Mail
 from itsdangerous import URLSafeTimedSerializer
 import mysql.connector
 

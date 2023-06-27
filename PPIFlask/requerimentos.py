@@ -32,7 +32,7 @@ def requerimento():
             idCategorialist = cursor.fetchall()
             idCategoria, *x = idCategorialist
 
-            cursor.execute("""SELECT descricao, pontos_string FROM criterios WHERE categoria_id=%s""", (*idCategoria,))
+            cursor.execute("""SELECT descricao, pontos_string, pontos FROM criterios WHERE categoria_id=%s""", (*idCategoria,))
             criterios = cursor.fetchall()
            
             if parte not in criteriosdict:
@@ -40,3 +40,14 @@ def requerimento():
             criteriosdict[parte][categoria] = criterios
 
     return render_template('requerimento.html', criteriosdict=criteriosdict, cppd = current_user.cppd)
+
+@requerimentos.route('/requerimento', methods=["GET", "POST"])
+@login_required
+
+def requerimento_post():
+    if request.method == 'POST':
+        for key, val in request.form.items():
+            if key.startswith("criterio"):
+                print(key, val)
+    
+    return redirect(url_for('docente.meus_requerimentos'))

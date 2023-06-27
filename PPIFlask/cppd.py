@@ -59,7 +59,7 @@ def alterar_requerimentos():
             idCategorialist = cursor.fetchall()
             idCategoria, *x = idCategorialist
 
-            cursor.execute("""SELECT descricao, pontos_string FROM criterios WHERE categoria_id=%s""", (*idCategoria,))
+            cursor.execute("""SELECT descricao, pontos_string, pontos FROM criterios WHERE categoria_id=%s""", (*idCategoria,))
             criterios = cursor.fetchall()
            
             if parte not in criteriosdict:

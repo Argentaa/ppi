@@ -25,9 +25,6 @@ for i, parte in enumerate(partes):
     pontosdict[parte][categoria] = criterios
 
 
-
-
-
 for i,l in pontosdict.items():
     print('\nparte', i)
     for j, k in l.items():
@@ -36,3 +33,10 @@ for i,l in pontosdict.items():
             for p in a:
                 print(p)'''
 
+TokenDocente = ('324fgd2fdsfsdg343dsfsd2524363tetesd26426gdsgdfgdsg')
+TokenDocente1 = ('')
+
+if TokenDocente1:
+    print('not none')
+else:
+    print('none')
